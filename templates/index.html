@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dan Schmitz- Project Portfolio</title>
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/flexslider.css')}}" rel="stylesheet" >
+    <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/queries.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/animate.css')}}" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+      <body id="top">
+        <header id="home">
+          <nav>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                  <nav class="pull">
+                    <ul class="top-nav">
+                      <li><a href="#intro">Introduction <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#portfolio">Portfolio <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#contact">Get in Touch <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <section class="hero" id="hero">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 text-right navicon">
+                  <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center inner">
+                  <h1 class="animated fadeInDown">DAN SCHMITZ</h1>
+                  <p class="animated fadeInUp delay-05s">100 Days of Code Project Portfolio</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                  <a href="http://www.google.com" class="learn-more-btn">View Resume</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </header>
+        <section class="intro text-center section-padding" id="intro">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 wp1">
+                <h1 class="arrow">Hi, I'm Dan.</h1>
+                <p>I recently set out to complete Angela Yu's 100 Days of Code course on Udemy to acquaint myself with
+                  Python programming.  I built this website using Flask to showcase my final projects.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="portfolio text-center section-padding" id="portfolio">
+          <div class="container">
+            <div class="row">
+              <div id="portfolioSlider">
+                <ul class="slides">
+                  {% for each in all_projects %}
+                  <li>
+                    {% for entry in each %}
+                    <div class="col-md-4 wp4">
+                      <div class="overlay-effect effects clearfix">
+                        <div class="img">
+                          <img src="img/portfolio-01.jpg" alt="Portfolio Item">
+                          <div class="overlay">
+                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                            <a class="close-overlay hidden">x</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h2>{{entry.name}}</h2>
+                      <p>{{entry.description}}</p>
+                    </div>
+                    {% endfor %}
+
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="dark-bg text-center section-padding contact-wrap" id="contact">
+          <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">Drop me a line</h1>
+              </div>
+            </div>
+            <div class="row contact-details">
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
+                  <p></p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
+                  <p></p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
+                  <p><a href="#"></a></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="social-buttons">
+                  <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{url_for('static', filename='js/waypoints.min.js')}}"></script>
+        <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+        <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+        <script src="{{url_for('static', filename='js/jquery.flexslider.js')}}"></script>
+        <script src="{{url_for('static', filename='js/modernizr.js')}}"></script>
+      </body>
+    </html>
